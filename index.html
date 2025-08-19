@@ -52,7 +52,20 @@
     </style>
 </head>
 <body>
-    
+
+<!-- LOGIN SECTION -->
+<div class="container" id="loginContainer">
+    <h2>Secure Login</h2>
+    <label for="username">Username</label>
+    <input type="text" id="username" placeholder="Enter username" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter password" required>
+
+    <button onclick="checkLogin()">Login</button>
+    <p id="loginError" style="color: red; display:none;">Invalid credentials</p>
+</div>
+
 <!-- PATIENT FORM SECTION (Hidden until login) -->
 <div class="container" id="formContainer" style="display:none;">
     <h2>GHISULAL SURANA DENTAL HOSPITAL</h2>
@@ -82,5 +95,24 @@
         <button type="submit">Submit</button>
     </form>
 </div>
+
+<script>
+    // Simple demo login (client-side only, NOT secure)
+    const validUser = "admin";
+    const validPass = "hospital123"; // Change this for demo
+
+    function checkLogin() {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (username === validUser && password === validPass) {
+            document.getElementById("loginContainer").style.display = "none";
+            document.getElementById("formContainer").style.display = "block";
+        } else {
+            document.getElementById("loginError").style.display = "block";
+        }
+    }
+</script>
+
 </body>
 </html>
